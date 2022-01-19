@@ -1,10 +1,11 @@
 import React, {useState, useRef, useEffect} from 'react';
 import Heart from 'react-animated-heart';
+import '../css/ImageCard.css';
 
-const ImageCard = ({title, date, img, handleLiked, isLiked}) => {
+const ImageCard = ({title, date, img, darkMode}) => {
 
     const [span, setSpan] = useState(0);
-    const [liked, setLiked] = useState(isLiked);
+    const [liked, setLiked] = useState(false);
 
     const cardRef = useRef(null);
     const imageRef = useRef(null);
@@ -13,25 +14,23 @@ const ImageCard = ({title, date, img, handleLiked, isLiked}) => {
         imageRef.current.addEventListener("load", handleSpan);
     });
 
-    const handleLikedClick = () => {
-        setLiked(!liked);
-        handleLiked(liked, img);
-    }
-
     const handleSpan = () => {
         const height = cardRef.current.offsetHeight;
         const span = Math.ceil(height/31);
         setSpan(span);
     }
 
+    var fontColor = darkMode ? "fontColorDark" : "fontColorLight";
+    var bgColor = darkMode ? "bgColorCardDark" : "bgColorCardLight";
+
     return (
         <div className="column" style={{gridRowEnd: `span ${span}`}}>
-            <div className="ui segment" ref={cardRef} style={{backgroundColor: "#e8e8e8", width: 480}}>
+            <div className={`ui segment ${bgColor}`} ref={cardRef} style={{width: 480}}>
                 <img ref={imageRef} src={img} alt="Sorry, image not available."/>
                 <div style={{paddingTop: "10px", paddingLeft: "5px"}}>
-                    <h3>{title}</h3>
-                    <p>{date}</p>
-                    <Heart isClick={liked} onClick={handleLikedClick} />
+                    <h3 className={fontColor}>{title}</h3>
+                    <p className={fontColor}>{date}</p>
+                    <Heart isClick={liked} onClick={() => {setLiked(!liked)}} />
                 </div>
             </div>
         </div>

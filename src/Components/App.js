@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import uuid from 'react-uuid';
+import { Checkbox } from 'semantic-ui-react';
 import "../css/ImageList.css";
 import ImageCard from './ImageCard';
 
@@ -11,6 +12,7 @@ const App = () => {
     const apodCount = 20;
 
     const [apodList, setApodList] = useState([]); 
+    const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true" ? true : false);
 
     useEffect(() => {
         axios.get(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&count=${apodCount}&thumbs=True`)
@@ -19,24 +21,38 @@ const App = () => {
             });
     }, []);
 
-    const handleLiked = (isLiked, img) => {
-        localStorage.setItem("liked", {img_url: img, liked: isLiked});
-    }
+    useEffect(() => {
+        localStorage.setItem("darkMode", darkMode);
+    }, [darkMode]);
 
     const imageList = apodList.map((apod) => {
-        if (apod.media_type == "image") {
-            const isReturningUser = "liked" in localStorage;
-            const savedMode = localStorage.getItem("liked") === {img_url: apod.url, liked: true} ? true : false;
-            const isLiked = isReturningUser ? savedMode : false;
-
-            return <ImageCard key={uuid()} title={apod.title} date={apod.date} img={apod.url} handleLiked={handleLiked} liked={isLiked} />
+        if (apod.media_type === "image") {
+            return <ImageCard key={uuid()} title={apod.title} date={apod.date} img={apod.url} darkMode={darkMode} />
+        } else {
+            return null;
         }
     });
 
     console.log("outside useEffect: ", imageList);
 
+    var fontColor = darkMode ? "fontColorDark" : "fontColorLight";
+    var bgColor = darkMode ? "bgColorDark" : "bgColorLight";
+
     return (
-        <div>
+        <div className={bgColor}>
+            <div id='title'>
+                <h1 className={fontColor}>Astronomy Picture of the Day</h1>
+                <div className='darkModeToggle'>
+                    <label className={fontColor} style={{marginRight: "10px"}} > Dark Mode </label>
+                    <Checkbox 
+                        toggle
+                        checked={darkMode}
+                        onClick={() => {setDarkMode(!darkMode)}}
+                        style={{float: "right"}}
+                    />
+                </div>
+            </div>
+            
             <div className="image-list">{imageList}</div>
         </div>
     ) 
