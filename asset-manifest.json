@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ShopifyNASAChallenge/static/css/main.70adc01a.css",
+    "main.js": "/ShopifyNASAChallenge/static/js/main.5007bcd3.js",
+    "index.html": "/ShopifyNASAChallenge/index.html",
+    "main.70adc01a.css.map": "/ShopifyNASAChallenge/static/css/main.70adc01a.css.map",
+    "main.5007bcd3.js.map": "/ShopifyNASAChallenge/static/js/main.5007bcd3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70adc01a.css",
+    "static/js/main.5007bcd3.js"
+  ]
+}
