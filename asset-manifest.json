@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ShopifyNASAChallenge/static/css/main.70adc01a.css",
-    "main.js": "/ShopifyNASAChallenge/static/js/main.5007bcd3.js",
+    "main.css": "/ShopifyNASAChallenge/static/css/main.fabd36c3.css",
+    "main.js": "/ShopifyNASAChallenge/static/js/main.97d50a55.js",
     "index.html": "/ShopifyNASAChallenge/index.html",
-    "main.70adc01a.css.map": "/ShopifyNASAChallenge/static/css/main.70adc01a.css.map",
-    "main.5007bcd3.js.map": "/ShopifyNASAChallenge/static/js/main.5007bcd3.js.map"
+    "main.fabd36c3.css.map": "/ShopifyNASAChallenge/static/css/main.fabd36c3.css.map",
+    "main.97d50a55.js.map": "/ShopifyNASAChallenge/static/js/main.97d50a55.js.map"
   },
   "entrypoints": [
-    "static/css/main.70adc01a.css",
-    "static/js/main.5007bcd3.js"
+    "static/css/main.fabd36c3.css",
+    "static/js/main.97d50a55.js"
   ]
 }
