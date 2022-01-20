@@ -29,7 +29,7 @@ const ImageCard = ({title, date, img, darkMode, numOfImg}) => {
 
     return (
         <div className="column" style={{gridRowEnd: `span ${span}`}}>
-            <div className={`ui segment ${bgColor}`} ref={cardRef} style={{width: 480}}>
+            <div className={`ui segment ${bgColor}`} ref={cardRef} style={{width: 400}}>
                 <img ref={imageRef} src={img} alt="Sorry, image not available." />
                 <div style={{paddingTop: "10px", paddingLeft: "5px"}}>
                     <h3 className={fontColor}>{title}</h3>

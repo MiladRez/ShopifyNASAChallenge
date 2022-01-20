@@ -57,7 +57,7 @@ const App = () => {
             {!loaded ? <LoadingScreen /> : null}
             <div className={`${bgColor} ${hidden}`}>
                 <div id='title'>
-                    <h1 className={fontColor}>Astronomy Picture of the Day</h1>
+                    <h1 className={fontColor}>Astronomy Pictures of the Day</h1>
                     <div className='darkModeToggle'>
                         <label className={fontColor} style={{marginRight: "10px"}} > Dark Mode </label>
                         <Checkbox 
