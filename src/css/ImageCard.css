@@ -25,3 +25,15 @@
     -ms-transition: background-color 500ms linear;
     transition: background-color 500ms linear;
 }
+
+.eyecon {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+}
+
+.heartIcon {
+    position: absolute;
+    left: 40%;
+    margin-top: -10px;
+}
